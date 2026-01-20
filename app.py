@@ -8,7 +8,7 @@ app=Flask(__name__)
 
 df = None
 
-df get_df():
+def get_df():
     global df
     if df is None:
         df = load()
@@ -17,7 +17,7 @@ df get_df():
 # -------- HOME --------
 @app.route("/")
 def home():
-    df = get_df()
+    def = get_df()
     states=sorted(df['state'].unique())
     return render_template("index.html",states=states)
 
@@ -25,7 +25,7 @@ def home():
 # -------- DISTRICT --------
 @app.route("/district")
 def district():
-    df = get_df()
+    def = get_df()
 
     state=request.args.get("state")
 
@@ -39,7 +39,7 @@ def district():
 # -------- PINCODE --------
 @app.route("/pincode")
 def pincode():
-    df = get_df()
+    def = get_df()
 
     state=request.args.get("state")
     district=request.args.get("district")
@@ -58,7 +58,7 @@ def pincode():
 # -------- DASHBOARD --------
 @app.route("/dashboard")
 def dashboard():
-    df = get_df()
+    def = get_df()
 
     state=request.args.get("state")
     district=request.args.get("district")
@@ -84,7 +84,7 @@ def dashboard():
 # -------- BOOKING --------
 @app.route("/booking",methods=['POST'])
 def booking():
-    df = get_df()
+    def = get_df()
 
     state=request.form['state']
     district=request.form['district']

@@ -1,0 +1,7 @@
+# Ignore Cloudflare binary
+cloudflared
+cloudflared.exe
+
+# Ignore Python cache
+__pycache__/
+*.pyc

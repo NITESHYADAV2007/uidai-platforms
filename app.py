@@ -11,7 +11,7 @@ df = None
 def get_df():
     global df
     if df is None:
-        df = analysis.load()
+        df =load()
     return df
 
 # -------- HOME --------

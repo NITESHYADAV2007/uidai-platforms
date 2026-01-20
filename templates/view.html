@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block body %}
+
+<div class="card">
+  <h3>{{state}} / {{district}} / {{pincode}}</h3>
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Total</th>
+      <th>Staff</th>
+    </tr>
+
+    {% for r in data %}
+    <tr>
+      <td>{{r.date}}</td>
+      <td>{{r.total}}</td>
+      <td>{{r.staff}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<div class="card">
+  <h3>Book Slot</h3>
+
+  <form action="/booking" method="post">
+    <input name="state" value="{{state}}" hidden />
+    <input name="district" value="{{district}}" hidden />
+    <input name="pincode" value="{{pincode}}" hidden />
+
+    Date DD-MM-YYYY
+    <input name="date" />
+
+    <button>Find Low Load</button>
+  </form>
+</div>
+
+{% endblock %}

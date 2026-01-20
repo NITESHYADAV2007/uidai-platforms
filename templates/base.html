@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>UIDAI Analytics Platform</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        background: #f0f2f5;
+      }
+
+      .nav {
+        background: #1a237e;
+        padding: 15px;
+        color: white;
+      }
+
+      .card {
+        background: white;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #ccc;
+      }
+
+      .btn {
+        background: #1a237e;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      select,
+      input {
+        padding: 6px;
+        margin: 5px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 6px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h2>UIDAI Demand Intelligence</h2>
+    </div>
+
+    {% block body %} {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block body %}
+
+<div class="card">
+  <h3>Low Load Centres</h3>
+
+  <table>
+    <tr>
+      <th>Pincode</th>
+      <th>Load</th>
+    </tr>
+
+    {% for r in result %}
+    <tr>
+      <td>{{r.pincode}}</td>
+      <td>{{r.total}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block body %}
+
+<div class="card">
+  <h3>State : {{state}}</h3>
+
+  <form action="/pincode">
+    <input type="hidden" name="state" value="{{state}}" />
+
+    <select name="district">
+      {% for d in districts %}
+      <option>{{d}}</option>
+      {% endfor %}
+    </select>
+
+    <button class="btn">Next</button>
+  </form>
+</div>
+
+{% endblock %}

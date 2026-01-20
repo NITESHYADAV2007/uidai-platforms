@@ -1,0 +1,88 @@
+{% extends "base.html" %} {% block body %}
+
+<div class="card">
+  <h3>{{state}} → {{district}} {% if pincode %} → {{pincode}} {% endif %}</h3>
+</div>
+
+<!-- TREND -->
+<div class="card">
+  <h3>Trend & Staffing</h3>
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Enrolments</th>
+      <th>7d Avg</th>
+      <th>30d Avg</th>
+      <th>Staff Needed</th>
+    </tr>
+
+    {% for t in trend %}
+    <tr>
+      <td>{{t.date}}</td>
+      <td>{{t.total}}</td>
+      <td>{{t['7d']}}</td>
+      <td>{{t['30d']}}</td>
+      <td>{{t.staff}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<!-- FORECAST -->
+<div class="card">
+  <h3>Forecast Next Days</h3>
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Predicted</th>
+    </tr>
+
+    {% for f in forecast %}
+    <tr>
+      <td>{{f.date}}</td>
+      <td>{{f.predicted}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<!-- INDICATORS -->
+<div class="card">
+  <h3>Development Proxies</h3>
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Adult Ratio</th>
+      <th>Total</th>
+    </tr>
+
+    {% for i in ind %}
+    <tr>
+      <td>{{i.date}}</td>
+      <td>{{i.adult_ratio}}</td>
+      <td>{{i.total}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<!-- BOOKING -->
+<div class="card">
+  <h3>Smart Booking (Low Load)</h3>
+
+  <form action="/booking" method="post">
+    <input type="hidden" name="state" value="{{state}}" />
+    <input type="hidden" name="district" value="{{district}}" />
+    <input type="hidden" name="pincode" value="{{pincode}}" />
+
+    Date (DD-MM-YYYY):
+    <input name="date" />
+
+    <button class="btn">Find Low Rush Slots</button>
+  </form>
+</div>
+
+{% endblock %}

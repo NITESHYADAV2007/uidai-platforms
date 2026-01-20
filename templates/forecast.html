@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block body %}
+
+<div class="card">
+  <table>
+    <tr>
+      <th>State</th>
+      <th>District</th>
+      <th>Pincode</th>
+      <th>Day</th>
+      <th>Prediction</th>
+    </tr>
+
+    {% for r in data %}
+    <tr>
+      <td>{{r.state}}</td>
+      <td>{{r.district}}</td>
+      <td>{{r.pincode}}</td>
+      <td>{{r.day}}</td>
+      <td>{{r.pred}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

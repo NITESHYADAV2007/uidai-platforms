@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block body %}
+
+<div class="card">
+  <h3>Admin Control Panel</h3>
+
+  <form method="post">
+    Operator Capacity / day:
+    <input name="cap" value="{{cap}}" />
+
+    <button class="btn">Update</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3>Peak Alerts (Next 7 Days)</h3>
+
+  <table>
+    <tr>
+      <th>State</th>
+      <th>District</th>
+      <th>Pincode</th>
+      <th>Date</th>
+      <th>Predicted</th>
+    </tr>
+
+    {% for a in alerts %}
+    <tr class="high">
+      <td>{{a.state}}</td>
+      <td>{{a.district}}</td>
+      <td>{{a.pincode}}</td>
+      <td>{{a.date}}</td>
+      <td>{{a.predicted}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}
